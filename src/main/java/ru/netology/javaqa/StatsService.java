@@ -3,35 +3,66 @@ import java.util.Arrays;
 
 
 public class StatsService {
-    public int GetMinSales(int[] month) {
-        //int[] month = {8,15,13,15,17,20,19,20,7,14,14,18};
+    public int GetMinSales(int[] sales) {
+        //int[] sales = {8,15,13,15,17,20,19,20,7,14,14,18};
         int minMonth = 0;
-        for (int i = 0; i < month.length; i++) {
-            if (month[i] <= month[minMonth]) {
+        for (int i = 0; i < sales.length; i++) {
+            if (sales[i] <= sales[minMonth]) {
                 minMonth = i;
             }
         }
-        return minMonth;
+        return minMonth + 1;
     }
 
-    public int GetMaxSales(int[] month1) {
-        //int[] month1 = {8,15,13,15,17,20,19,20,7,14,14,18};
+    public int GetMaxSales(int[] sales) {
+        //int[] sales = {8,15,13,15,17,20,19,20,7,14,14,18};
         int maxMonth = 0;
-        for (int i = 0; i > month1.length; i++) {
-            if (month1[i]>month1[maxMonth]) {
+        for (int i = 0; i < sales.length; i++) {
+            if (sales[i]>=sales[maxMonth]) {
                 maxMonth = i;
             }
         }
-        return maxMonth;
+        return maxMonth + 1;
     }
 
     public int SalesAmount(int[] sales) {
         //int[] month = {8,15,13,15,17,20,19,20,7,14,14,18};
         int totalSales = 0;
-        for(int i = 0; i < salesAmount.length; i++) {
-            totalSales += salesAmount[totalSales];
+        for(int i = 0; i < sales.length; i++) {
+            totalSales += sales[i];
         }
-        return totalSales;
+        return totalSales ;
+    }
+
+    public int AverageSalesAmountMonth(int[] sales) {
+        int totalSales = SalesAmount(sales);
+        int averageSales = totalSales / sales.length;
+
+        return averageSales;
+    }
+
+    public int SalesBelowAverage(int[] sales) {
+        int averageSales = AverageSalesAmountMonth(sales);
+        int countBellow = 0;
+        for(int sale: sales) {
+            if (sale < averageSales) {
+                countBellow++;
+            }
+        }
+        return countBellow;
+
+    }
+
+    public int SalesAreAboveAverage(int[] sales) {
+        int averageSales = AverageSalesAmountMonth(sales);
+        int countHigher = 0;
+        int i = 0;
+        for(i = 0; i < sales.length; i++) {
+            if(sales[i]>averageSales) {
+                countHigher++;
+            }
+        }
+        return countHigher;
     }
 
 }

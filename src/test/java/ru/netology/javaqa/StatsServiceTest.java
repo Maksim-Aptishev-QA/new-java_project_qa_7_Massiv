@@ -12,7 +12,7 @@ public class StatsServiceTest {
         int[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
 
         int expectedSales = 9;
-        int actualSales = service.GetMinSales(sales);
+        int actualSales = service.getMinSales(sales);
 
         Assertions.assertEquals(expectedSales, actualSales);
     }
@@ -24,7 +24,7 @@ public class StatsServiceTest {
         int[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
 
         int expectedSales = 8;
-        int actualSales = service.GetMaxSales(sales);
+        int actualSales = service.getMaxSales(sales);
 
         Assertions.assertEquals(expectedSales, actualSales);
     }
@@ -36,38 +36,38 @@ public class StatsServiceTest {
         int[] sales = {8,15,13,15,17,20,19,20,7,14,14,18};
 
         int expectedSales = 180;
-        int actualSales = service.SalesAmount(sales);
+        int actualSales = service.salesAmount(sales);
         Assertions.assertEquals(expectedSales, actualSales);
     }
 
     @Test
-    public void AverageSalesAmountMonthTest() {
+    public void averageSalesAmountMonthTest() {
         StatsService service = new StatsService();
 
         int[] sales = {8,15,13,15,17,20,19,20,7,14,14,18};
         int expectedSales = 15;
-        int actualSales = service.AverageSalesAmountMonth(sales);
+        int actualSales = service.averageSalesAmountMonth(sales);
         Assertions.assertEquals(expectedSales, actualSales);
     }
 
     @Test
-    public void SalesBelowAverageTest() {
+    public void salesBelowAverageTest() {
         StatsService service = new StatsService();
 
         int[] sales = {8,15,13,15,17,20,19,20,7,14,14,18};
         int expectedSales = 5;
-        int actualSales = service.SalesBelowAverage(sales);
+        int actualSales = service.salesBelowAverage(sales);
         Assertions.assertEquals(expectedSales, actualSales);
     }
 
     @Test
-    public void SalesAreAboveAverageTest() {
+    public void salesAreAboveAverageTest() {
         StatsService service = new StatsService();
 
         int[] sales = {8,15,13,15,17,20,19,20,7,14,14,18};
 
         int expectedSales = 5;
-        int actualSales = service.SalesAreAboveAverage(sales);
+        int actualSales = service.salesAreAboveAverage(sales);
         Assertions.assertEquals(expectedSales, actualSales);
     }
     }
